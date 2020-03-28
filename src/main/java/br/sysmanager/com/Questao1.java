@@ -3,13 +3,19 @@ package br.sysmanager.com;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class Questao1 {
 	public static void main(String[] args) {
-		if (args.length == 0) {
+		
+		String palavra = JOptionPane.showInputDialog("Digite uma palavra:");
+		
+		if (palavra.isEmpty() || palavra.length() <= 2) {
 			System.out.println("Digite uma palavra com mais de 2 caracteres");
 			return;
-		}
-		new Questao1(args[0]);	
+		} 
+		
+		new Questao1(palavra);	
 		return;
 	}
 	
