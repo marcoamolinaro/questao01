@@ -8,14 +8,19 @@ import javax.swing.JOptionPane;
 public class Questao1 {
 	public static void main(String[] args) {
 		
-		String palavra = JOptionPane.showInputDialog("Digite uma palavra:");
+		try {
+			String palavra = JOptionPane.showInputDialog("Digite uma palavra:");
 		
-		if (palavra.isEmpty() || palavra.length() <= 2) {
+			if (palavra.isEmpty() || palavra.length() <= 2) {
+				System.out.println("Digite uma palavra com mais de 2 caracteres");
+				return;
+			} 
+		
+			new Questao1(palavra);	
+		} catch (Exception e) {
 			System.out.println("Digite uma palavra com mais de 2 caracteres");
 			return;
-		} 
-		
-		new Questao1(palavra);	
+		}
 		return;
 	}
 	
