@@ -102,7 +102,7 @@ public class Questao01Test {
 	@Test
 	public void TestVerificaLetraAlfabetoBrasileiro_letra_invalida() {
 		Questao1 q1 = new Questao1();
-		Character letra = 'β';
+		Character letra = '$';
 		Boolean expect = false;
 		
 		Boolean actual = q1.verificaLetraAlfabetoBrasileiro(letra);
