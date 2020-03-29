@@ -12,13 +12,13 @@ public class Questao1 {
 			String palavra = JOptionPane.showInputDialog("Digite uma palavra:");
 		
 			if (palavra.isEmpty() || palavra.length() <= 2) {
-				System.out.println("Digite uma palavra com mais de 2 caracteres");
+				JOptionPane.showMessageDialog(null, "Digite uma palavra com mais de 2 caracteres");
 				return;
 			} 
 		
 			new Questao1(palavra);	
 		} catch (Exception e) {
-			System.out.println("Digite uma palavra com mais de 2 caracteres");
+			JOptionPane.showMessageDialog(null, "Digite uma palavra com mais de 2 caracteres");
 			return;
 		}
 		return;
@@ -59,8 +59,7 @@ public class Questao1 {
 	
 	public void processar_palavra(String palavra) {
 		if (palavra.length() <= 2) {
-			System.out.println("Digite uma palavra com mais de 2 caracteres");
-			System.out.println(palavra);
+			JOptionPane.showMessageDialog(null, "Digite uma palavra com mais de 2 caracteres");
 			return;
 		} 
 		List<Character> letras = new ArrayList<Character>();
@@ -70,20 +69,18 @@ public class Questao1 {
 			if (verificaLetraAlfabetoBrasileiro(c)) {
 				letras.add(c);
 			} else {
-				System.out.println("Palavra '" + palavra + "' inválida, pois Letra '"+c+"' não é do alfabeto português brasileiro");
+				JOptionPane.showMessageDialog(null, "Palavra '" + palavra + "' inválida, pois Letra '"+c+"' não é do alfabeto português brasileiro");
 				return;
 			}
 		}
-			
-		System.out.println("Palavra válida '" + palavra + "'");	
-		
+					
 		/* 
 		 * Obtém todas as combinações possíveis 
 		 * 
-		 */
+		 */	
 		obterAnagrama(letras, 0);
 		
-		System.out.println("Quantidade de anagramas possíves da palavra '" + palavra + "' é: " + anagramas.size());
+		String msg = "Quantidade de anagramas possíves da palavra '" + palavra + "' é: " + anagramas.size() + "\n\n";
 		
 		
 		int count = 0;
@@ -94,15 +91,17 @@ public class Questao1 {
 		 * 
 		 */		
 		for (String s : anagramas) {
-			System.out.print(s);
+			msg += s;
 			count++;
 			if (count < 8) {
-				System.out.print(", ");
+				msg += ", ";
 			} else {
-				System.out.println(",");
+				msg += ","; 
 				break;
 			}
 		}
+		
+		JOptionPane.showMessageDialog(null, msg);
 	}	
 	
 	/* Obtém todos os anagramas possíves 
